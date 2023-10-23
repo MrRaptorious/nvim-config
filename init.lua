@@ -179,6 +179,8 @@ require('lazy').setup({
   -- require 'eandrju/cellular-automaton.nvim',
   'eandrju/cellular-automaton.nvim',
   'ThePrimeagen/harpoon',
+  'tpope/vim-obsession',
+  'preservim/nerdcommenter',
 
   -- Ziglang support: https://github.com/ziglang/zig.vim
   'ziglang/zig.vim',
@@ -263,6 +265,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    file_ignore_patterns = {
+      "node_modules"
+    },
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -398,7 +403,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  --nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
